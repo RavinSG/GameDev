@@ -13,7 +13,7 @@ int main() {
     game.ResetTime();*/
 
     while (game.IsRunning()) {
-        game.CaptureInput();
+        game.ProcessInput();
         game.Update();
         game.LateUpdate();
         game.Draw();

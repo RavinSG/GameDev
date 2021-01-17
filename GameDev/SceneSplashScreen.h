@@ -1,5 +1,5 @@
 #pragma once
-
+#include <iostream>
 #include <SFML/Graphics.hpp>
 
 #include "SceneStateMachine.h"
@@ -14,7 +14,7 @@ public:
 	void OnDestroy() override;
 
 	void OnActivate() override;
-	
+
 	void SetSwitchToScene(unsigned int id);
 
 	void Update(float deltaTime) override;

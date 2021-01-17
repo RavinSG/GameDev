@@ -14,7 +14,7 @@ SceneSplashScreen::SceneSplashScreen(WorkingDirectory& workingDir,
 
 void SceneSplashScreen::OnCreate()
 {
-	splashTexture.loadFromFile(workingDir.Get() + "splash.png");
+	splashTexture.loadFromFile(workingDir.Get() + "viking_splash.jpg");
 	splashSprite.setTexture(splashTexture);
 
 	sf::FloatRect spriteSize = splashSprite.getLocalBounds();
@@ -35,6 +35,12 @@ void SceneSplashScreen::OnActivate()
 	currentSeconds = 0.f;
 }
 
+void SceneSplashScreen::SetSwitchToScene(unsigned int id)
+{
+	// Store the id of the next scene that we will transition to.
+	switchToState = id;
+}
+
 void SceneSplashScreen::OnDestroy() {}
 
 void SceneSplashScreen::Update(float deltaTime)
@@ -45,6 +51,7 @@ void SceneSplashScreen::Update(float deltaTime)
 	{
 		// Switch states
 		sceneStateMachine.SwitchTo(switchToState);
+		std::cout << "Switching States";
 	}
 }
 

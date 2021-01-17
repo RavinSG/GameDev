@@ -42,6 +42,9 @@
     <ClCompile Include="SceneSplashScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SceneGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -74,15 +77,15 @@
     <ClInclude Include="SceneSplashScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SceneGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="viking.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="splash.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="updated_splash.png">
+    <Image Include="viking_splash.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -7,54 +7,42 @@ Helper helper{};
 
 Game::Game() :window(gameName)
 {
-	vikingTeture.loadFromFile(workingDir.Get() + "viking.png");
-	vikingSprite.setTexture(vikingTeture);
+	auto splashScreen = std::make_shared<SceneSplashScreen>(workingDir, sceneStateMachine, window);
+	auto gameScene = std::make_shared<SceneGame>(workingDir);
+
+	unsigned int splashScrennID = sceneStateMachine.Add(splashScreen);
+	unsigned int gameSceneID = sceneStateMachine.Add(gameScene);
+
+	splashScreen->SetSwitchToScene(gameSceneID);
+	sceneStateMachine.SwitchTo(splashScrennID);
 
 	deltaTime = clock.restart().asSeconds();
 }
 
-void Game::Update()
-{	
-	window.Update();
-	const sf::Vector2f& spritePos = vikingSprite.getPosition();
-	const int moveSpeed = 100;
-
-	int xMove{ 0 };
-	if (input.IsKeyPressed(Input::Key::Left))
-	{
-		xMove = -moveSpeed;
-	}
-	else if (input.IsKeyPressed(Input::Key::Right))
-	{
-		xMove = moveSpeed;
-	}
-
-	int yMove{ 0 };
-	if (input.IsKeyPressed(Input::Key::Down))
-	{
-		yMove = moveSpeed;
-	}
-	else if (input.IsKeyPressed(Input::Key::Up))
-	{
-		yMove = -moveSpeed;
-	}
-
-	float xFrameMove = xMove * deltaTime;
-	float yFrameMove = yMove * deltaTime;
-
-	vikingSprite.setPosition(spritePos.x + xFrameMove, spritePos.y + yFrameMove);
+void::Game::ProcessInput()
+{
+	sceneStateMachine.ProcessInput();
 }
 
-void Game::LateUpdate() {}
+void Game::Update()
+{
+	window.Update();
+	sceneStateMachine.Update(deltaTime);
+}
+
+void Game::LateUpdate()
+{
+	sceneStateMachine.LateUpdate(deltaTime);
+}
 
 void Game::Draw()
 {
 	window.BeginDraw();
-	window.Draw(vikingSprite);
+	sceneStateMachine.Draw(window);
 	window.EndDraw();
 }
 
-bool Game::IsRunning() const 
+bool Game::IsRunning() const
 {
 	return window.isOpen();
 }
@@ -67,8 +55,4 @@ void Game::ResetTime()
 void Game::CalculateDeltaTime()
 {
 	deltaTime = clock.restart().asSeconds();
-}
-
-void Game::CaptureInput() {
-	input.Update();
 }
