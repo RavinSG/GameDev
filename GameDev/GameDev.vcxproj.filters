@@ -36,10 +36,10 @@
     <ClCompile Include="Input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
+    <ClCompile Include="SceneStateMachine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SceneStateMachine.cpp">
+    <ClCompile Include="SceneSplashScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,9 +71,18 @@
     <ClInclude Include="SceneStateMachine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SceneSplashScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="viking.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="splash.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="updated_splash.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

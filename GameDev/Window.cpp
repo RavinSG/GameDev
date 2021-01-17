@@ -25,6 +25,12 @@ void Window::EndDraw() {
 	window.display();
 }
 
+sf::Vector2u Window::GetCenter() const
+{
+	sf::Vector2u size = window.getSize();
+	return sf::Vector2u(size.x / 2, size.y / 2);
+}
+
 bool Window::isOpen() const {
 	return window.isOpen();
 }

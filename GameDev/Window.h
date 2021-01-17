@@ -9,6 +9,8 @@ public:
 	void Draw(const sf::Drawable& drawable);
 	void EndDraw();
 
+	sf::Vector2u GetCenter() const;
+
 	bool isOpen() const;
 
 private:

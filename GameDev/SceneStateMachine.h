@@ -29,12 +29,12 @@ public:
 
 private:
 	// Stores all of the scenes associated with this state machine.
-	std::unordered_map<unsigned int, std::shared_ptr<Scene>> scenes;
+	std::unordered_map<unsigned int, std::shared_ptr<Scene>> scenes{};
 
 	// Stores a reference to the current scence. Used when drawing/updating.
-	std::shared_ptr<Scene> curScene;
+	std::shared_ptr<Scene> curScene{};
 
 	// Stores our current scene id. This is incremented whenever a scene is added.
-	unsigned int insertedSceneID;
+	unsigned int insertedSceneID{};
 };
 
