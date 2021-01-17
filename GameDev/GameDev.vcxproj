@@ -147,6 +147,8 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneStateMachine.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WorkingDirectory.cpp" />
@@ -157,6 +159,8 @@
     <ClInclude Include="Helper.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneStateMachine.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="WorkingDirectory.h" />
   </ItemGroup>
