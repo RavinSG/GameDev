@@ -4,8 +4,11 @@ SceneGame::SceneGame(WorkingDirectory& workingDir) : workingDir{ workingDir } {}
 
 void SceneGame::OnCreate()
 {
-	vikingTexture.loadFromFile(workingDir.Get() + "viking.png");
-	vikingSprite.setTexture(vikingTexture);
+	player = std::make_shared<Object>();
+
+	auto sprite = player->AddComponent<C_Sprite>();
+	sprite->Load(workingDir.Get() + "viking.png");
+
 }
 
 void SceneGame::OnDestroy() {}
@@ -17,7 +20,7 @@ void SceneGame::ProcessInput()
 
 void SceneGame::Update(float deltaTime) 
 {
-	const sf::Vector2f& spritePos = vikingSprite.getPosition();
+	/*const sf::Vector2f& spritePos = vikingSprite.getPosition();
 	const int moveSpeed = 100;
 
 	int xMove{ 0 };
@@ -43,10 +46,10 @@ void SceneGame::Update(float deltaTime)
 	float xFrameMove = xMove * deltaTime;
 	float yFrameMove = yMove * deltaTime;
 
-	vikingSprite.setPosition(spritePos.x + xFrameMove, spritePos.y + yFrameMove);
+	vikingSprite.setPosition(spritePos.x + xFrameMove, spritePos.y + yFrameMove);*/
 }
 
 void SceneGame::Draw(Window& window)
 {
-	window.Draw(vikingSprite);
+	player->Draw(window);
 }

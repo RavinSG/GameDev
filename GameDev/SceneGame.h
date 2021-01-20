@@ -2,6 +2,8 @@
 
 #include "Scene.h"
 #include "Input.h"
+#include "Object.h"
+#include "C_Sprite.h"
 #include "WorkingDirectory.h"
 
 class SceneGame : public Scene
@@ -17,8 +19,7 @@ public:
 	void Draw(Window& window) override;
 
 private:
-	sf::Texture vikingTexture;
-	sf::Sprite vikingSprite;
+	std::shared_ptr<Object> player;
 
 	WorkingDirectory workingDir;
 	Input input;
