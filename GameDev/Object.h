@@ -4,10 +4,14 @@
 
 #include "Window.h"
 #include "Component.h"
+#include "C_Transform.h"
 
 class Object
 {
 public:
+	Object();
+
+	std::shared_ptr<C_Transform> transform;
 	// Awake is alled when the object is created. Used to ensure
 	// all required components are present
 	void Awake();

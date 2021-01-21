@@ -1,5 +1,10 @@
 #include "Object.h"
 
+Object::Object()
+{
+	transform = AddComponent<C_Transform>();
+}
+
 void Object::Awake()
 {
 	for (auto component : components)

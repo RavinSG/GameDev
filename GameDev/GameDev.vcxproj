@@ -144,7 +144,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bitmask.cpp" />
+    <ClCompile Include="C_KeyBoardMovement.cpp" />
     <ClCompile Include="C_Sprite.cpp" />
+    <ClCompile Include="C_Transform.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -159,7 +161,9 @@
   <ItemGroup>
     <ClInclude Include="Bitmask.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="C_KeyBoardMovement.h" />
     <ClInclude Include="C_Sprite.h" />
+    <ClInclude Include="C_Transform.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="Input.h" />

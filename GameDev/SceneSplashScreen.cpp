@@ -9,7 +9,7 @@ SceneSplashScreen::SceneSplashScreen(WorkingDirectory& workingDir,
 	window{ window },
 	switchToState{ 0 },
 	currentSeconds{ 0.f },
-	showForSeconds{ 3.f }
+	showForSeconds{ 1.f }
 {}
 
 void SceneSplashScreen::OnCreate()

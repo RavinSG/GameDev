@@ -9,6 +9,8 @@ void SceneGame::OnCreate()
 	auto sprite = player->AddComponent<C_Sprite>();
 	sprite->Load(workingDir.Get() + "viking.png");
 
+	auto movement = player->AddComponent<C_KeyBoardMovement>();
+	movement->SetInput(&input);
 }
 
 void SceneGame::OnDestroy() {}
@@ -18,35 +20,14 @@ void SceneGame::ProcessInput()
 	input.Update();
 }
 
-void SceneGame::Update(float deltaTime) 
+void SceneGame::Update(float deltaTime)
 {
-	/*const sf::Vector2f& spritePos = vikingSprite.getPosition();
-	const int moveSpeed = 100;
+	player->Update(deltaTime);
+}
 
-	int xMove{ 0 };
-	if (input.IsKeyPressed(Input::Key::Left))
-	{
-		xMove = -moveSpeed;
-	}
-	else if (input.IsKeyPressed(Input::Key::Right))
-	{
-		xMove = moveSpeed;
-	}
-
-	int yMove{ 0 };
-	if (input.IsKeyPressed(Input::Key::Down))
-	{
-		yMove = moveSpeed;
-	}
-	else if (input.IsKeyPressed(Input::Key::Up))
-	{
-		yMove = -moveSpeed;
-	}
-
-	float xFrameMove = xMove * deltaTime;
-	float yFrameMove = yMove * deltaTime;
-
-	vikingSprite.setPosition(spritePos.x + xFrameMove, spritePos.y + yFrameMove);*/
+void SceneGame::LateUpdate(float deltaTime)
+{
+	player->LateUpdate(deltaTime);
 }
 
 void SceneGame::Draw(Window& window)
