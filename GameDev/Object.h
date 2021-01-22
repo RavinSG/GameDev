@@ -23,6 +23,9 @@ public:
 	void LateUpdate(float deltaTime);
 	void Draw(Window& window);
 
+	bool IsQueuedForRemoval();
+	void QueueForRemoval();
+
 	template <typename T> std::shared_ptr<T> AddComponent()
 	{
 		// This endures that we only try to add a class that derives
@@ -62,6 +65,6 @@ public:
 
 private:
 	std::vector<std::shared_ptr<Component>> components;
-
+	bool queuedForRemoval;
 };
 

@@ -7,6 +7,7 @@
 #include "WorkingDirectory.h"
 #include "C_KeyBoardMovement.h"
 #include "ResorceAllocator.h"
+#include "ObjectCollection.h"
 
 class SceneGame : public Scene
 {
@@ -22,10 +23,9 @@ public:
 	void LateUpdate(float deltaTime) override;
 
 private:
-	std::shared_ptr<Object> player;
-
-	WorkingDirectory workingDir{};
 	Input input{};
+	WorkingDirectory workingDir{};
 	ResorceAllocator<sf::Texture>& textureAllocator;
+	ObjectCollection objects;
 };
 

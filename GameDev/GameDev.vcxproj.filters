@@ -16,6 +16,9 @@
     <Filter Include="Source Files\Components">
       <UniqueIdentifier>{d9badf6d-c222-41ca-90b5-24a351069464}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utilities">
+      <UniqueIdentifier>{ced0c4a1-cbaf-4c87-97ef-5f6aaa93c96e}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\Scenes">
       <UniqueIdentifier>{1b16b740-b395-4b7e-8925-6e68de0d3393}</UniqueIdentifier>
     </Filter>
@@ -28,15 +31,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WorkingDirectory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Helper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Bitmask.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
@@ -63,8 +57,17 @@
     <ClCompile Include="SceneStateMachine.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="ResorceAllocator.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Bitmask.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Helper.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkingDirectory.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectCollection.cpp">
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +120,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ResorceAllocator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectCollection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
