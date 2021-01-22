@@ -20,8 +20,13 @@ public:
 
 	void LateUpdate(float deltaTime) override;
 
+	void SetTextureRect(int x, int y, int width, int height);
+	void SetTextureRect(const sf::IntRect& rect);
+
 private:
 	ResorceAllocator<sf::Texture>* allocator;
 	sf::Sprite sprite;
+
+	int currentTextureID;
 };
 

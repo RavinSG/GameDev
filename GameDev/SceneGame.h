@@ -8,6 +8,7 @@
 #include "C_KeyBoardMovement.h"
 #include "ResorceAllocator.h"
 #include "ObjectCollection.h"
+#include "C_Animation.h"
 
 class SceneGame : public Scene
 {

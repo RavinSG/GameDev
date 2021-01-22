@@ -11,7 +11,7 @@ SceneSplashScreen::SceneSplashScreen(WorkingDirectory& workingDir,
 	textureAllocator{textureAllocator},
 	switchToState{ 0 },
 	currentSeconds{ 0.f },
-	showForSeconds{ 1.f }
+	showForSeconds{ 5.f }
 {}
 
 void SceneSplashScreen::OnCreate()
