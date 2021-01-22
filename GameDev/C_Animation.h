@@ -25,6 +25,7 @@ public:
 	void SetAnimationState(AnimationState state);
 
 	const AnimationState& GetAnimationState() const;
+	void SetAnimationDirection(FacingDirection direction);
 
 private:
 	std::shared_ptr<C_Sprite> sprite;

@@ -1,6 +1,10 @@
 #include "Animation.h"
 
-Animation::Animation() : frames{ 0 }, CurrentFrameIndex{ 0 }, CurrentFrameTime{ 0.f } {}
+Animation::Animation(FacingDirection direction) :
+	frames{ 0 },
+	CurrentFrameIndex{ 0 },
+	CurrentFrameTime{ 0.f },
+	direction{ direction } {}
 
 void Animation::AddFrame(int textureID, int x, int y, int width, int height, float frameTime)
 {
@@ -13,6 +17,24 @@ void Animation::AddFrame(int textureID, int x, int y, int width, int height, flo
 	data.displayTimeSeconds = frameTime;
 
 	frames.push_back(data);
+}
+
+void Animation::SetDirection(FacingDirection direction)
+{
+	if (direction != this->direction)
+	{
+		this->direction = direction;
+		for (auto& frame : frames)
+		{
+			frame.x += frame.width;
+			frame.width *= -1;
+		}
+	}
+}
+
+FacingDirection Animation::GetDirection() const
+{
+	return direction;
 }
 
 const FrameData* Animation::GetCurrentFrame() const
@@ -42,7 +64,7 @@ bool Animation::UpdateFrame(float deltaTime)
 	return false;
 }
 
-void Animation::IncrmentFrame() 
+void Animation::IncrmentFrame()
 {
 	CurrentFrameIndex = (CurrentFrameIndex + 1) % frames.size();
 }

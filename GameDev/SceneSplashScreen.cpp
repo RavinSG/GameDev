@@ -8,14 +8,14 @@ SceneSplashScreen::SceneSplashScreen(WorkingDirectory& workingDir,
 	sceneStateMachine{ sceneStateMachine },
 	workingDir{ workingDir },
 	window{ window },
-	textureAllocator{textureAllocator},
+	textureAllocator{ textureAllocator },
 	switchToState{ 0 },
 	currentSeconds{ 0.f },
 	showForSeconds{ 5.f }
 {}
 
 void SceneSplashScreen::OnCreate()
-{	
+{
 	int textureID = textureAllocator.Add(workingDir.Get() + "viking_splash.jpg");
 	if (textureID >= 0) {
 		std::shared_ptr<sf::Texture> texture = textureAllocator.Get(textureID);
