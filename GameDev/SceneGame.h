@@ -6,11 +6,12 @@
 #include "C_Sprite.h"
 #include "WorkingDirectory.h"
 #include "C_KeyBoardMovement.h"
+#include "ResorceAllocator.h"
 
 class SceneGame : public Scene
 {
 public:
-	SceneGame(WorkingDirectory& workingDir);
+	SceneGame(WorkingDirectory& workingDir, ResorceAllocator<sf::Texture>& textureAllocator);
 
 	void OnCreate() override;
 	void OnDestroy() override;
@@ -25,5 +26,6 @@ private:
 
 	WorkingDirectory workingDir{};
 	Input input{};
+	ResorceAllocator<sf::Texture>& textureAllocator;
 };
 

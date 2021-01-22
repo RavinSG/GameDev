@@ -4,11 +4,16 @@
 
 #include "SceneStateMachine.h"
 #include "WorkingDirectory.h"
+#include "ResorceAllocator.h"
 
 class SceneSplashScreen : public Scene
 {
 public:
-	SceneSplashScreen(WorkingDirectory& workingDir, SceneStateMachine& sceneStateMachine, Window& window);
+	SceneSplashScreen(
+		WorkingDirectory& workingDir,
+		SceneStateMachine& sceneStateMachine,
+		Window& window,
+		ResorceAllocator<sf::Texture>& textureAllocator);
 
 	void OnCreate() override;
 	void OnDestroy() override;
@@ -21,12 +26,12 @@ public:
 	void Draw(Window& window) override;
 
 private:
-	sf::Texture splashTexture;
 	sf::Sprite splashSprite;
 
 	WorkingDirectory& workingDir;
 	SceneStateMachine& sceneStateMachine;
 	Window& window;
+	ResorceAllocator<sf::Texture>& textureAllocator;
 
 	// Amount of time we wnat to display the splashscreen.
 	float showForSeconds;

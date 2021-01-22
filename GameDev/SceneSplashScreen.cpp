@@ -2,31 +2,36 @@
 
 SceneSplashScreen::SceneSplashScreen(WorkingDirectory& workingDir,
 	SceneStateMachine& sceneStateMachine,
-	Window& window) :
+	Window& window,
+	ResorceAllocator<sf::Texture>& textureAllocator) :
 
 	sceneStateMachine{ sceneStateMachine },
 	workingDir{ workingDir },
 	window{ window },
+	textureAllocator{textureAllocator},
 	switchToState{ 0 },
 	currentSeconds{ 0.f },
 	showForSeconds{ 1.f }
 {}
 
 void SceneSplashScreen::OnCreate()
-{
-	splashTexture.loadFromFile(workingDir.Get() + "viking_splash.jpg");
-	splashSprite.setTexture(splashTexture);
+{	
+	int textureID = textureAllocator.Add(workingDir.Get() + "viking_splash.jpg");
+	if (textureID >= 0) {
+		std::shared_ptr<sf::Texture> texture = textureAllocator.Get(textureID);
+		splashSprite.setTexture(*texture);
 
-	sf::FloatRect spriteSize = splashSprite.getLocalBounds();
+		sf::FloatRect spriteSize = splashSprite.getLocalBounds();
 
-	// Set the origin of the sprite to the center of the image.
-	splashSprite.setOrigin(spriteSize.width * 0.5f, spriteSize.height * 0.5f);
-	splashSprite.setScale(0.5f, 0.5f);
+		// Set the origin of the sprite to the center of the image.
+		splashSprite.setOrigin(spriteSize.width * 0.5f, spriteSize.height * 0.5f);
+		splashSprite.setScale(0.5f, 0.5f);
 
-	sf::Vector2u windowCenter = window.GetCenter();
+		sf::Vector2u windowCenter = window.GetCenter();
 
-	// Positions sprite in the center of the screen
-	splashSprite.setPosition(static_cast<float>(windowCenter.x), static_cast<float>(windowCenter.y));
+		// Positions sprite in the center of the screen
+		splashSprite.setPosition(static_cast<float>(windowCenter.x), static_cast<float>(windowCenter.y));
+	}
 }
 
 void SceneSplashScreen::OnActivate()

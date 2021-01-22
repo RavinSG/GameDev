@@ -29,6 +29,7 @@ private:
 	sf::Clock clock;
 	float deltaTime{};
 
+	ResorceAllocator<sf::Texture> textureAllocator{};
 	SceneStateMachine sceneStateMachine;
 	
 };

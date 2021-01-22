@@ -7,8 +7,8 @@ Helper helper{};
 
 Game::Game() :window(gameName)
 {
-	auto splashScreen = std::make_shared<SceneSplashScreen>(workingDir, sceneStateMachine, window);
-	auto gameScene = std::make_shared<SceneGame>(workingDir);
+	auto splashScreen = std::make_shared<SceneSplashScreen>(workingDir, sceneStateMachine, window, textureAllocator);
+	auto gameScene = std::make_shared<SceneGame>(workingDir, textureAllocator);
 
 	unsigned int splashScrennID = sceneStateMachine.Add(splashScreen);
 	unsigned int gameSceneID = sceneStateMachine.Add(gameScene);

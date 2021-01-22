@@ -151,6 +151,7 @@
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ResorceAllocator.cpp" />
     <ClCompile Include="SceneGame.cpp" />
     <ClCompile Include="SceneSplashScreen.cpp" />
     <ClCompile Include="SceneStateMachine.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="Helper.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="ResorceAllocator.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneGame.h" />
