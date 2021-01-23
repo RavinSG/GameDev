@@ -46,9 +46,9 @@ void SceneGame::OnCreate()
 
 	animation->AddAnimation(AnimationState::Walk, walkAnimation);
 
-	sf::Vector2i mapOffset(0, 128);
+	sf::Vector2i mapOffset(-0, 128);
 	std::vector<std::shared_ptr<Object>> levelTiles 
-		= mapParser.Parse(workingDir.Get() + "JungleTiles.tmx", mapOffset);
+		= mapParser.Parse(workingDir.Get() + "Test Map 1.tmx", mapOffset);
 
 	objects.Add(levelTiles);
 }

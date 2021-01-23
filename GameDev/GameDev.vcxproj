@@ -146,6 +146,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Bitmask.cpp" />
     <ClCompile Include="C_Animation.cpp" />
+    <ClCompile Include="C_Drawable.cpp" />
     <ClCompile Include="C_KeyBoardMovement.cpp" />
     <ClCompile Include="C_Sprite.cpp" />
     <ClCompile Include="C_Transform.cpp" />
@@ -158,8 +159,9 @@
     <ClCompile Include="SceneSplashScreen.cpp" />
     <ClCompile Include="SceneStateMachine.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="S_Drawable.cpp" />
     <ClCompile Include="Tile.cpp" />
-    <ClCompile Include="TIleMapParser.cpp" />
+    <ClCompile Include="TileMapParser.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WorkingDirectory.cpp" />
   </ItemGroup>
@@ -168,6 +170,7 @@
     <ClInclude Include="Bitmask.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="C_Animation.h" />
+    <ClInclude Include="C_Drawable.h" />
     <ClInclude Include="C_KeyBoardMovement.h" />
     <ClInclude Include="C_Sprite.h" />
     <ClInclude Include="C_Transform.h" />
@@ -186,19 +189,22 @@
     <ClInclude Include="SceneGame.h" />
     <ClInclude Include="SceneSplashScreen.h" />
     <ClInclude Include="SceneStateMachine.h" />
+    <ClInclude Include="S_Drawable.h" />
     <ClInclude Include="Tile.h" />
-    <ClInclude Include="TIleMapParser.h" />
+    <ClInclude Include="TileMapParser.h" />
     <ClInclude Include="Utilities.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="WorkingDirectory.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="JungleTiles.png" />
+    <Image Include="Jungle Tiles.png" />
+    <Image Include="Red Square.png" />
     <Image Include="viking.png" />
     <Image Include="viking_splash.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="JungleTiles.tmx" />
+    <None Include="Test Map 1.tmx" />
+    <None Include="Test Map 2.tmx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

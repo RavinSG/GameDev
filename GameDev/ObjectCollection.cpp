@@ -18,10 +18,7 @@ void ObjectCollection::LateUpdate(float deltaTime)
 
 void ObjectCollection::Draw(Window& window)
 {
-	for (auto& object : objects)
-	{
-		object->Draw(window);
-	}
+	drawables.Draw(window);
 }
 
 void ObjectCollection::Add(std::shared_ptr<Object> object)
@@ -48,7 +45,8 @@ void ObjectCollection::ProcessNewObjects()
 			object->Start();
 		}
 
-		objects.assign(newObjects.begin(), newObjects.end());
+		objects.insert(objects.end(), newObjects.begin(), newObjects.end());
+		drawables.Add(newObjects);
 		newObjects.clear();
 	}
 
@@ -71,4 +69,6 @@ void ObjectCollection::ProcessRemovals()
 			++objectIterator;
 		}
 	}
+
+	drawables.ProcessRemovals();
 }

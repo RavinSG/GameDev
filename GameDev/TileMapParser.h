@@ -30,6 +30,8 @@ using MapTiles = std::map<std::string, std::shared_ptr<Layer>>;
 // Stores the different tile types that can be used
 using TileSet = std::unordered_map<unsigned int, std::shared_ptr<TileInfo>>;
 
+using TileSheets = std::map<int, std::shared_ptr<TileSheetData>>;
+
 class TileMapParser
 {
 public:
@@ -38,9 +40,9 @@ public:
 	std::vector<std::shared_ptr<Object>> Parse(const std::string& file, sf::Vector2i offset);
 
 private:
-	std::shared_ptr<TileSheetData> BuildTileSheetData(xml_node<>* rootNode);
+	std::shared_ptr<TileSheets> BuildTileSheetData(xml_node<>* rootNode);
 	std::shared_ptr<MapTiles> BuildMapTiles(xml_node<>* rootNode);
-	std::pair<std::string, std::shared_ptr<Layer>> BuildLayer(xml_node<>* layerNode, std::shared_ptr<TileSheetData> tileSheetData);
+	std::pair<std::string, std::shared_ptr<Layer>> BuildLayer(xml_node<>* layerNode, std::shared_ptr<TileSheets> tileSheets);
 
 	ResorceAllocator<sf::Texture>& textureAllocator;
 };

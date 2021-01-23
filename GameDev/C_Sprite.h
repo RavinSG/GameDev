@@ -3,8 +3,9 @@
 #include "Component.h"
 #include "C_Transform.h"
 #include "ResorceAllocator.h" 
+#include "C_Drawable.h"
 
-class C_Sprite : public Component
+class C_Sprite : public Component, public C_Drawable
 {
 public:
 	C_Sprite(Object* owner);
@@ -29,5 +30,5 @@ private:
 	sf::Sprite sprite;
 
 	int currentTextureID;
-};
+   };
 

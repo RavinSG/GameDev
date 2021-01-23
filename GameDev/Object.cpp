@@ -41,7 +41,7 @@ void Object::Draw(Window& window)
 {
 	for (auto component : components)
 	{
-		component->Draw(window);
+		drawable->Draw(window);
 	}
 }
 
@@ -53,4 +53,9 @@ void Object::QueueForRemoval()
 bool Object::IsQueuedForRemoval()
 {
 	return queuedForRemoval;
+}
+
+std::shared_ptr<C_Drawable> Object::GetDrawable()
+{
+	return drawable;
 }

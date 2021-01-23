@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Scenes">
       <UniqueIdentifier>{1b16b740-b395-4b7e-8925-6e68de0d3393}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Systems">
+      <UniqueIdentifier>{28493801-20b0-4f1c-877d-6a9af1f6e0d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -78,7 +81,13 @@
     <ClCompile Include="Tile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TIleMapParser.cpp">
+    <ClCompile Include="C_Drawable.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="S_Drawable.cpp">
+      <Filter>Source Files\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMapParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -158,10 +167,16 @@
     <ClInclude Include="Tile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TIleMapParser.h">
+    <ClInclude Include="Utilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utilities.h">
+    <ClInclude Include="C_Drawable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="S_Drawable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMapParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -172,12 +187,18 @@
     <Image Include="viking_splash.jpg">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="JungleTiles.png">
+    <Image Include="Red Square.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Jungle Tiles.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="JungleTiles.tmx">
+    <None Include="Test Map 1.tmx">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Test Map 2.tmx">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

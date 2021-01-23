@@ -5,6 +5,7 @@
 #include "Window.h"
 #include "Component.h"
 #include "C_Transform.h"
+#include "C_Drawable.h"
 
 class Object
 {
@@ -45,6 +46,12 @@ public:
 		// We create the component and add it to the list.
 		std::shared_ptr<T> newComponent = std::make_shared<T>(this);
 		components.push_back(newComponent);
+
+		if (std::dynamic_pointer_cast<C_Drawable> (newComponent))
+		{
+			drawable = std::dynamic_pointer_cast<C_Drawable>(newComponent);
+		}
+
 		return newComponent;
 	}
 
@@ -60,11 +67,15 @@ public:
 			}
 		}
 
+
 		return nullptr;
 	}
+
+	std::shared_ptr<C_Drawable> GetDrawable();
 
 private:
 	std::vector<std::shared_ptr<Component>> components;
 	bool queuedForRemoval;
+	std::shared_ptr<C_Drawable> drawable;
 };
 
