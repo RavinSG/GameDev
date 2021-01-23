@@ -1,9 +1,11 @@
 #include "SceneGame.h"
+#include <iostream>
 
 SceneGame::SceneGame(WorkingDirectory& workingDir,
 	ResorceAllocator<sf::Texture>& textureAllocator) :
 	workingDir{ workingDir },
-	textureAllocator{ textureAllocator } {}
+	textureAllocator{ textureAllocator },
+	mapParser{ textureAllocator }{}
 
 void SceneGame::OnCreate()
 {
@@ -17,6 +19,8 @@ void SceneGame::OnCreate()
 
 	auto animation = player->AddComponent<C_Animation>();
 	int vikingTextureID = textureAllocator.Add(workingDir.Get() + "viking.png");
+
+	objects.Add(player);
 
 	const int frameWidth = 165;
 	const int frameHeight = 145;
@@ -42,7 +46,11 @@ void SceneGame::OnCreate()
 
 	animation->AddAnimation(AnimationState::Walk, walkAnimation);
 
-	objects.Add(player);
+	sf::Vector2i mapOffset(-100, 128);
+	std::vector<std::shared_ptr<Object>> levelTiles 
+		= mapParser.Parse(workingDir.Get() + "JungleTiles.tmx", mapOffset);
+
+	objects.Add(levelTiles);
 }
 
 void SceneGame::OnDestroy() {}

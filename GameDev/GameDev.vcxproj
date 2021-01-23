@@ -158,6 +158,8 @@
     <ClCompile Include="SceneSplashScreen.cpp" />
     <ClCompile Include="SceneStateMachine.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TIleMapParser.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WorkingDirectory.cpp" />
   </ItemGroup>
@@ -174,18 +176,29 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectCollection.h" />
+    <ClInclude Include="rapidxml.hpp" />
+    <ClInclude Include="rapidxml_iterators.hpp" />
+    <ClInclude Include="rapidxml_print.hpp" />
+    <ClInclude Include="rapidxml_utils.hpp" />
     <ClInclude Include="ResorceAllocator.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneGame.h" />
     <ClInclude Include="SceneSplashScreen.h" />
     <ClInclude Include="SceneStateMachine.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="TIleMapParser.h" />
+    <ClInclude Include="Utilities.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="WorkingDirectory.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="JungleTiles.png" />
     <Image Include="viking.png" />
     <Image Include="viking_splash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="JungleTiles.tmx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,6 +9,7 @@
 #include "ResorceAllocator.h"
 #include "ObjectCollection.h"
 #include "C_Animation.h"
+#include "TileMapParser.h"
 
 class SceneGame : public Scene
 {
@@ -28,5 +29,6 @@ private:
 	WorkingDirectory workingDir{};
 	ResorceAllocator<sf::Texture>& textureAllocator;
 	ObjectCollection objects;
+	TileMapParser mapParser;
 };
 
