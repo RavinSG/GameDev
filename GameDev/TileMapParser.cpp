@@ -15,7 +15,7 @@ std::vector<std::shared_ptr<Object>> TileMapParser::Parse(const std::string& fil
 	xml_node<>* rootNode = doc.first_node("map");
 
 	// Load tile layers from XML
-	std::shared_ptr <MapTiles> tiles = BuildMapTiles(rootNode);
+	std::shared_ptr <MapTiles> map = BuildMapTiles(rootNode);
 
 	// We need to calculate tile positions in world space
 	int tileSizeX = std::atoi(rootNode->first_attribute("tilewidth")->value());
@@ -27,27 +27,29 @@ std::vector<std::shared_ptr<Object>> TileMapParser::Parse(const std::string& fil
 	std::vector<std::shared_ptr<Object>> tileObjects;
 
 	// Keep track of layer count
-	int layerCount = tiles->size() - 1;
+	int layerCount = map->size() - 1;
 
-	for (const auto& layer : *tiles)
+	for (const auto& layer : *map)
 	{
-		for (const auto& tile : *layer.second)
+		for (const auto& tile : layer.second->tiles)
 		{
 			std::shared_ptr<TileInfo> tileInfo = tile->properties;
 
 			std::shared_ptr<Object> tileObject = std::make_shared<Object>();
 			const unsigned int tileScale{ 3 };
 
-			// Allocating sprites
-			auto sprite = tileObject->AddComponent<C_Sprite>();
-			sprite->SetTextureAllocator(&textureAllocator);
-			sprite->Load(tileInfo->textureID);
-			sprite->SetTextureRect(tileInfo->textureRect);
-			sprite->SetScale(tileScale, tileScale);
+			// Check visibility befreo allocating sprites
+			if (layer.second->isVisible)
+			{
+				auto sprite = tileObject->AddComponent<C_Sprite>();
+				sprite->SetTextureAllocator(&textureAllocator);
+				sprite->Load(tileInfo->textureID);
+				sprite->SetTextureRect(tileInfo->textureRect);
+				sprite->SetScale(tileScale, tileScale);
 
-			// Set ther sort order for drawing
-			sprite->SetSortOrder(layerCount);
-
+				// Set ther sort order for drawing
+				sprite->SetSortOrder(layerCount);
+			}
 			// Calculate world position
 			float x = static_cast<float>(tile->x * tileSizeX * tileScale + offset.x);
 			float y = static_cast<float>(tile->y * tileSizeY * tileScale + offset.y);
@@ -191,12 +193,21 @@ TileMapParser::BuildLayer(xml_node<>* layerNode,
 			tile->x = count % width - 1;
 			tile->y = count / width;
 
-			layer->emplace_back(tile);
+			layer->tiles.emplace_back(tile);
 		}
 
 		count++;
 	}
 
 	const std::string layerName = layerNode->first_attribute("name")->value();
+	bool layerVisible = true;
+	xml_attribute<>* visibleAttribute = layerNode->first_attribute("visible");
+
+	if (visibleAttribute)
+	{
+		layerVisible = std::stoi(visibleAttribute->value());
+	}
+	layer->isVisible = layerVisible;
+
 	return std::make_pair(layerName, layer);
 }

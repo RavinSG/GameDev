@@ -18,10 +18,13 @@ public:
 	void AddX(float x);
 	void AddY(float y);
 
+	void SetStatic(bool isStatic);
+	bool isStatic() const;
+
 	const sf::Vector2f& GetPosition() const;
 
 private:
 	sf::Vector2f position;
-
+	bool isStaticTransform;
 };
 
