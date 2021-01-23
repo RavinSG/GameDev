@@ -33,18 +33,19 @@ std::vector<std::shared_ptr<Object>> TileMapParser::Parse(const std::string& fil
 			std::shared_ptr<TileInfo> tileInfo = tile->properties;
 
 			std::shared_ptr<Object> tileObject = std::make_shared<Object>();
-			const unsigned int tileScale{ 1 };
+			const unsigned int tileScale{ 3 };
 
 			// Allocating sprites
 			auto sprite = tileObject->AddComponent<C_Sprite>();
 			sprite->SetTextureAllocator(&textureAllocator);
 			sprite->Load(tileInfo->textureID);
 			sprite->SetTextureRect(tileInfo->textureRect);
+			sprite->SetScale(tileScale, tileScale);
 
 			// Calculate world position
 			float x = static_cast<float>(tile->x * tileSizeX * tileScale + offset.x);
 			float y = static_cast<float>(tile->y * tileSizeY * tileScale + offset.y);
-			std::cout << x << ' ' << y << '\n';
+
 			tileObject->transform->SetPosition(x, y);
 			tileObjects.emplace_back(tileObject);
 		}

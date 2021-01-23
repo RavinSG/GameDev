@@ -6,7 +6,6 @@
 
 #include "rapidxml.hpp"
 #include "rapidxml_utils.hpp"
-#include "rapidxml.hpp"
 #include "Tile.h"
 #include "Utilities.h"
 #include "Object.h"

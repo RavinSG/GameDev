@@ -3,16 +3,16 @@
 #include <SFML/Graphics.hpp>
 #include "ResorceAllocator.h"
 
+
 struct TileInfo
 {
-	TileInfo() : tileID(-1) {}
+	TileInfo() : tileID(-1)
+	{
+	}
 
-	TileInfo(int textureID, unsigned int tileID, sf::IntRect texturRect) :
-		tileID{ tileID },
-		textureID{ textureID },
-		textureRect{ textureRect } {}
+	TileInfo(int textureID, unsigned int tileID, sf::IntRect textureRect) : textureID{ textureID }, tileID(tileID), textureRect{ textureRect } { }
 
-	unsigned int tileID;
+	int tileID;
 	int textureID;
 	sf::IntRect textureRect;
 };
@@ -23,3 +23,4 @@ struct Tile
 	int x;
 	int y;
 };
+
