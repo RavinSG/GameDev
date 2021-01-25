@@ -6,6 +6,7 @@
 #include "Component.h"
 #include "C_Transform.h"
 #include "C_Drawable.h"
+#include "C_InstanceID.h"
 
 class Object
 {
@@ -26,6 +27,10 @@ public:
 
 	bool IsQueuedForRemoval();
 	void QueueForRemoval();
+
+	std::shared_ptr<C_InstanceID> instanceID;
+
+	std::shared_ptr<C_Drawable> GetDrawable();
 
 	template <typename T> std::shared_ptr<T> AddComponent()
 	{
@@ -71,7 +76,6 @@ public:
 		return nullptr;
 	}
 
-	std::shared_ptr<C_Drawable> GetDrawable();
 
 private:
 	std::vector<std::shared_ptr<Component>> components;
